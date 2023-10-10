@@ -20,7 +20,11 @@
             T as the set of tasks. Each possible pairing of an agent and task has an associated cost which we can describe as a 
             mapping \(C: (A, T)\rightarrow \mathbb{R}\). 
             Each agent can only complete one task and we need each task to be completed. 
-            The goal of the problem is to minimize the total cost to complete all of the tasks. We should note that if the number of agents of </p>
+            The goal of the problem is to minimize the total cost to complete all of the tasks. We should note that if the number of agents is equal to the 
+        number of tasks, then we would refer to this as a <i>balanced assignment problem</i> (we will be working with this). If the number of agents is greater 
+        than the number of tasks, it would be an <i>unbalanced assignment problem</i>. We can turn an unbalanced assignment problem into a balanced assignment 
+        problem through creating "dummy" tasks where we just assign a cost of 0 for every agent. We dont need to consider the case where the number of tasks is 
+        greater than the number of agents as we would either need an agent complete more than one task or have unfulfied tasks.</p>
             
             <p>
             An example where such a problem arises is in smart warehouses where 
@@ -29,6 +33,66 @@
             drop off all of the packages. We will see a sample problem relating to this later on. 
         </p><br>
         <h2> Formal Defintion of a Balanced Assignment Problem</h2>
+        <p>Lets give a mathematical defintion on what we are trying to do. From above, A is the set of agents, T is the set of tasks and C is the cost function 
+            \(C: (A, T)\rightarrow \mathbb{R}\). Our goal is to find a <i>bijection</i> \(P: A \rightarrow T\) such that we are minimizing:
+
+            $$ \sum_{a \in A}^{} C(a, P(a))$$
+
+            *Note that a bijection in our case means that for every task \(t \in T\), there exists exactly one agent \(a \in A\) such that \(P(a) = t\)
+        </p>
+
+        <h2> Representing our Bijection as a Graph</h2>
+        <p> Lets try to represent all the possible pairings of our bijection as a graph:</p>
+        <img src="images/graph1.png" alt="graph1"><br> <p>
+        We will represent every agent as a set of green nodes and every task as a set of blue nodes. We will represent a possible pairing between an agenet and a task 
+        through an edge. 
+        One of the first things that we will notice about our graph is that it is <i>bipartite</i>. A <i>bipartite graph</i> is a graph that the vertcies can be 
+        divided into two indepedent sets such that every edge has the two end points in different sets. In our case, the first set is all the agents (green verticies) 
+        the other set is all of the tasks (blue verticies). Then the weighted edges would represent the cost for an agent to complete a specific task. We call a 
+        graph a <i>complete bipartite graph</i> if every vertex connects to every other vertex that is a part of the opposite set. 
+        </p>
+        <h2> Graph Matching Definitions</h2>
+        <p>
+        Suppose that we have a graph G = (V, E). Lets define a few keys terms that build upon each other: 
+        <ul> 
+            <li><b>A Matching</b>: We call a subset of edges \(M \subseteq E\) a matching if no two edges in M share a common vertex as an endpoint</li>
+            <li><b>Maximal Matching</b>: We say that a matching is maximal if it is not a subset of any other matching.</li>
+            <li><b>Maximum-Cardinality Matching</b>: A maximum-cardinality matching is a matching that contains the maximum possible edges in a matching. 
+            It is important to note that every maximum-cardinality matching is also a maximal matching but not every maximal matching is a maximum-cardinality matching.</li>
+            <li><b>Perfect Matching</b>: A matching where every vertex is matched</li>
+        </ul>
+        <img src="images/graph2.png" alt="graph1"></img><br><br>
+        An example of a matching that is neither maximal or maximum-cardinality<br>
+        <img src="images/graph3.png" alt="graph3"></img><br><br>
+        An example of a matching that is maximal but not maximum-cardinality<br>
+        <img src="images/graph4.png" alt="graph4"></img><br> <br>
+        An example of a matching that is maximum-cardinality (thus maximal as well) 
+        </p>
+        <h2>Minimum Cost Bipartite Matching Problem</h2>
+        <p>
+        Now lets look at a variation of the graph matching problem: Suppose that we have a weighted complete bipartite graph G = (V, E), such that V is split 
+        into two equal groups A and T  each of size n and we have a cost function \(C: E \in (A \times T) \rightarrow \mathbb{R}\) to represent the weights of 
+        the edges. Our goal is to find the maximum-cardinality matching with the lowest total weight. 
+
+        In the case of a complete bipartite graph, the set of all perfect matchings and the set of all maximum-cardinality matchings are the same. 
+        </p> 
+
+
+
+        <h2> Hungarian Algorithm </h2>
+        <p>
+        Although an intuitive way to go about solving this question is to just turn our graph into a network flow problem as such: <br>
+        <img src="images/graph5.png" alt="graph5"></img><br> <br>
+
+        It would only be able to give us a solution in psuedo-polynomial time (see Ford-Fulkerson Algorithm). Thankfully, with the Hungarian algorithm we able to 
+        achieve a solution in strongly polynomial time. The algorithm was developed by Harold Kuhn in 1955 but coined the algorithm as the "Hungarian Algorithm"
+        because it was based on the works of two Hungarian mathematicians the century earlier. Before we get into the algorithm, lets look at a simple example on 
+        why selecting edges purely based off weight is not ideal. Suppose we have the following graph: <br>
+        <img src="images/graph6.png" alt="graph6"></img><br> <br>
+
+
+        </p>
+
 
         </td></tr>
         </table>
