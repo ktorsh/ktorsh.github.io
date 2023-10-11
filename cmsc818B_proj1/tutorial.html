@@ -98,8 +98,39 @@
         <img src="images/graph8.png" alt="graph8"></img><br> <br>
         When we match an agent to a task, we are also thus preventing any other agent from matching with that task. So we need a way to account for the possible 
         lost "oppertunity cost". 
+        </p>
 
         <h3>Running through an example with three nodes</h3>
+        <p>
+        Suppose we had the following graph and we wanted to find least cost maximum-cardinality matching: <br>
+
+        <img src="images/graph9.png" alt="graph9"></img><br> <br>
+
+        Our initial step is for all \(a \in A\), we are going to take the weight of the smallest edge connected to vertex a and subtract that weight with every other 
+        edge connected to that vertex: 
+        <ul> 
+            <li><b>\(a_1\):</b> The smallest edge weight is 3. So our edge weights go from (3, 5, 7) to (0, 2, 5) respectivly.</li>
+            <li><b>\(a_2\):</b> The smallest edge weight is 3. So our edge weights go from (3, 4, 6) to (0, 1, 3) respectivly.</li>
+            <li><b>\(a_3\):</b> The smallest edge weight is 1. So our edge weights go from (1, 9, 9) to (0, 8, 6) respectivly.</li>
+        </ul>
+        Now our graph will look like: 
+        <br> 
+        <img src="images/graph10.png" alt="graph10"></img><br> <br>
+
+        We are likewise going to do this for all \(t \in T\) (starting from the graph above): 
+        <ul> 
+            <li><b>\(t_1\):</b> The smallest edge weight is 0, so we dont need to do anything. </li>
+            <li><b>\(t_2\):</b> The smallest edge weight is 1. So our edge weights go from (2, 1, 8) to (1, 0, 7) respectivly.</li>
+            <li><b>\(t_3\):</b> The smallest edge weight is 3. So our edge weights go from (5, 3, 6) to (2, 0, 3) respectivly.</li>
+        </ul>
+
+        Now our graph will look like: <br>
+        <img src="images/graph11.png" alt="graph11"></img><br> <br>
+
+        Now we are only going to consider the edges with a weight of 0 and try to make a maximal matching from it: <br> 
+
+        <img src="images/graph12.png" alt="graph12"></img><br> <br>
+
 
         </p>
 
