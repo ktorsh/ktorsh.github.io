@@ -72,7 +72,7 @@
         <p>
         Now lets look at a variation of the graph matching problem: Suppose that we have a weighted complete bipartite graph G = (V, E), such that V is split 
         into two equal groups A and T  each of size n and we have a cost function \(C: E \in (A \times T) \rightarrow \mathbb{R}\) to represent the weights of 
-        the edges. Our goal is to find the maximum-cardinality matching with the lowest total weight. 
+        the edges. Our goal is to find the maximum-cardinality matching with the lowest total weight. <br>
 
         In the case of a complete bipartite graph, the set of all perfect matchings and the set of all maximum-cardinality matchings are the same. 
         </p> 
@@ -84,12 +84,22 @@
         Although an intuitive way to go about solving this question is to just turn our graph into a network flow problem as such: <br>
         <img src="images/graph5.png" alt="graph5"></img><br> <br>
 
-        It would only be able to give us a solution in psuedo-polynomial time (see Ford-Fulkerson Algorithm). Thankfully, with the Hungarian algorithm we able to 
+        It would only be able to give us a solution in psuedo-polynomial time as it would also depend on the weights 
+        of the edges (see Ford-Fulkerson Algorithm). Thankfully, with the Hungarian algorithm we able to 
         achieve a solution in strongly polynomial time. The algorithm was developed by Harold Kuhn in 1955 but coined the algorithm as the "Hungarian Algorithm"
         because it was based on the works of two Hungarian mathematicians the century earlier. Before we get into the algorithm, lets look at a simple example on 
         why selecting edges purely based off weight is not ideal. Suppose we have the following graph: <br>
         <img src="images/graph6.png" alt="graph6"></img><br> <br>
 
+        If we greedily select \(\overline{a_1t_1}\) because it has the lowest cost, then we are forced to select \(\overline{a_2t_2}\) because the other two edges 
+        connect to either \(a_1\) or \(t_1\).<br>
+        <img src="images/graph7.png" alt="graph7"></img><br> <br>
+        So our total cost here will be 11. But the other matching below will yield a total cost of 7: <br>
+        <img src="images/graph8.png" alt="graph8"></img><br> <br>
+        When we match an agent to a task, we are also thus preventing any other agent from matching with that task. So we need a way to account for the possible 
+        lost "oppertunity cost". 
+
+        <h3>Running through an example with three nodes</h3>
 
         </p>
 
