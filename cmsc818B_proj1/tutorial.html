@@ -100,8 +100,38 @@
         lost "oppertunity cost". 
         </p>
 
+
+        <h3>Psuedocode</h3>
+        <p>
+        The following is the psuedocode for the Hungarian Method. It becomes much easier to understand if you run through it with the example in the next section. <br>
+        <br> 
+        for each node \(a \in A\): <br>
+        &emsp; Find the minimum cost edge connected to a<br>
+        &emsp; Subtract that minimum cost from every edge connected to a <br>
+        <br> 
+        for each node \(t \in T\): <br>
+        &emsp; Find the minimum cost edge connected to t<br>
+        &emsp; Subtract that minimum cost from every edge connected to t <br>
+        
+        <br> 
+
+        // Matching Step<br>
+        Only taking the edges that have 0 weight, try to find a maximal matching through max-flow. Denote the matched agents.<br><br>
+        while the matching is not of maximum-cardinality (or complete): <br>
+        &emsp; //Iterative Step <br>
+        &emsp;Considering all the edges that are connected to our matched agents, find the smallest weight that is not 0 and denote that as d.<br>
+        &emsp;For each edge in our graph: <br> 
+        &emsp;&emsp;if our edge is connected to a matched agent and the weight \(\neq\) 0: <br> 
+        &emsp;&emsp;&emsp; Subtract d from the weight of the edge <br> 
+        &emsp;&emsp;else if our edge is connected to an unmatched agent and the weight \(\neq\) 0: <br> 
+        &emsp;&emsp;&emsp; Add d to the weight of the edge <br> <br>
+        &emsp; Repeat the matching step from above<br>
+
+        </p>
+
         <h3>Running through an example with three nodes</h3>
         <p>
+        
         Suppose we had the following graph and we wanted to find least cost maximum-cardinality matching: <br>
 
         <img src="images/graph9.png" alt="graph9"></img><br> <br>
@@ -113,6 +143,8 @@
             <li><b>\(a_2\):</b> The smallest edge weight is 3. So our edge weights go from (3, 4, 6) to (0, 1, 3) respectivly.</li>
             <li><b>\(a_3\):</b> The smallest edge weight is 1. So our edge weights go from (1, 9, 9) to (0, 8, 6) respectivly.</li>
         </ul>
+        </p>
+        <p>
         Now our graph will look like: 
         <br> 
         <img src="images/graph10.png" alt="graph10"></img><br> <br>
@@ -123,6 +155,8 @@
             <li><b>\(t_2\):</b> The smallest edge weight is 1. So our edge weights go from (2, 1, 8) to (1, 0, 7) respectivly.</li>
             <li><b>\(t_3\):</b> The smallest edge weight is 3. So our edge weights go from (5, 3, 6) to (2, 0, 3) respectivly.</li>
         </ul>
+        </p>
+        <p>
 
         Now our graph will look like: <br>
         <img src="images/graph11.png" alt="graph11"></img><br> <br>
@@ -130,6 +164,43 @@
         Now we are only going to consider the edges with a weight of 0 and try to make a maximal matching from it: <br> 
 
         <img src="images/graph12.png" alt="graph12"></img><br> <br>
+
+        Lets convert this graph into a network flow but lets set all of the capacities to 1. When a capacity is set to 1, it means that we either use the edge or 
+        we dont as every edge must have integers weights. So when we end up trying to find the max-flow, that would equate to using as many edges as possible. However,
+        since the edges going from the verticies in T to the sink also have a maximum capacity of 1, that prevents more than one edge having flow into each \(t \in T\): 
+        <br> 
+        <img src="images/graph13.png" alt="graph13"></img><br> <br>
+
+        After running the Ford-Fulkerson Algorithm, we should end up with the following flow: <br> 
+        <img src="images/graph14.png" alt="graph14"></img><br> <br>
+        We are going to denote \([a_1, a_2]\) as matched and \([a_3]\) as unmatched. 
+        Since our matching is not complete, we are going to have to move on to an addition step called the iterative step 
+        to see if we can make another matching. Looking back at the graph before the flow: <br>
+        <img src="images/graph11.png" alt="graph11"></img><br> <br>
+        Considering all the edges that are connected to our matched vertices \([a_1, a_2]\), we are going to find the smallest weight that is not 0 and denote that as 
+        d. Thus in our case, d = 1. Then we will run the following steps. <br> <br> 
+        Iterative Step: <br> 
+        &emsp;For each edge in our graph: <br> 
+        &emsp;&emsp;if our edge is connected to a matched agent and the weight \(\neq\) 0: <br> 
+        &emsp;&emsp;&emsp; Subtract d from the weight of the edge <br> 
+        &emsp;&emsp;else if our edge is connected to an unmatched agent and the weight \(\neq\) 0: <br> 
+        &emsp;&emsp;&emsp; Add d to the weight of the edge <br> <br>
+
+        After the iterative step, we will end up with the following graph: <br> 
+        <img src="images/graph15.png" alt="graph15"></img><br> <br>
+        We are then again going to run the step where we only consider the edges with 0 weight and try to find a maximal matching through a network flow, The 
+        final network flow after that whole process is shown below: <br> 
+        <img src="images/graph16.png" alt="graph16"></img><br> <br>
+
+        Since all of the agents are matched, we can get our final solution through which edges have flow: 
+        <ul> 
+            <li>Agent 1 matches with Task 2</li>
+            <li>Agent 2 matches with Task 3</li>
+            <li>Agent 3 matches with Task 1</li>
+        </ul>
+
+
+
 
 
         </p>
