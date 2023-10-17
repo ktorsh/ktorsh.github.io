@@ -30,7 +30,17 @@
             An example where such a problem arises is in smart warehouses where 
             we could have multiple drones flying through a warehouse and we need to pick up a set of packages. The cost function could be the total distance the drone 
             has to travel to pick up then drop off a select package. So what we are trying to do is minimize the total distance the drones have to travel to pick up and 
-            drop off all of the packages. We will see a sample problem relating to this later on. 
+            drop off all of the packages. We will see a sample problem relating to this later on. <br><br> 
+
+            One of the largest applications of graph matching in current robotics research is when dealing with the Multi-Robot Task Allocation (MRTA) Problem, which 
+            can be thought as a more general version of the assignment problem. Although there are many different flavors to the problem, the general idea is that we 
+            have a set of tasks that each have an associated reward and a set of agents that have to expend a defined cost to perform each task. Then, our goal is to
+            perform as many tasks as we can in order to maximize the total reward while trying to minimize the cost expended. Then as the problem is tailored to 
+            to different scenarios, additional constraints will be added. The issue that arises with these problems is that they are usually in NP-Hard, meaning that 
+            there is no known polynomial time solution to solve these problems. Therefore, current research aims to evaluate the performance of various approximation 
+            algorithms, which are algorithms that generally can be quite efficient at the sacrifice that the returned solution may not be the ideal solution. 
+            An example of this is in the paper, <i>Multi-Robot Task Allocation Framework with Integrated Risk-Aware 3D Path Planning</i>, where the authors use the 
+            graph matching algorithm we will discuss later down as a part of their larger framework for multi-robot path planning.
         </p><br>
         <h2> Formal Defintion of a Balanced Assignment Problem</h2>
         <p>Lets give a mathematical defintion on what we are trying to do. From above, A is the set of agents, T is the set of tasks and C is the cost function 
