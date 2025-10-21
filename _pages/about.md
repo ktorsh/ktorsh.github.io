@@ -27,8 +27,8 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-Hello! I'm Kasra Torshizi and I'm currently a second-year Computer Science PhD student under Dr. Pratap Tokekar at the University of Maryland, College Park. My research revolves around Robotics and Machine Learning, where I am partically interested in reinforcement learning, imitation learning, and control theory. I am currently investigating how learned priors can further enhance classical control methods. 
+Hello! I'm Kasra Torshizi and I'm currently a second-year Computer Science PhD student working under Dr. Pratap Tokekar at the University of Maryland, College Park. My field of research is Robotics and Machine Learning with a focus in Planning and Controls. I'm particularly interested in finding new ways to incoporate learned priors into optimal control methods. I'm also interested in reinforcement learning, imimitation learning, and control theory as a whole. 
 
 I previously completed my bachelors degree in Computer Science with a minor in Mathematics at UMD, during which I was involved in cybersecurity research with Dr. Dave Levin and completed two software engineering internships at Echostar. In my free time, I enjoy skiing, hiking, and cooking. 
 
-I'm currently doing a major revamp of this website
+I'm currently doing a major revamp of this website!
