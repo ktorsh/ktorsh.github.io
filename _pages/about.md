@@ -27,8 +27,10 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-Hello! I'm Kasra Torshizi and I'm currently a second-year Computer Science PhD student working under Dr. Pratap Tokekar at the University of Maryland, College Park. My field of research is Robotics and Machine Learning with a focus in Planning and Controls. I'm particularly interested in finding new ways to incoporate learned priors into optimal control methods. I'm also interested in reinforcement learning, imimitation learning, and control theory as a whole. 
+Hello! I'm Kasra Torshizi, a Computer Science PhD student at the University of Maryland, College Park, advised by [Dr. Pratap Tokekar](http://tokekar.com/) in the [Robotics Algorithms and Autonomous Systems (RAAS) Lab](http://raaslab.org/). My research is in robotics and machine learning, with a focus on planning and control, and I'm particularly interested in finding new ways to incorporate learned priors into optimal control methods. Right now I'm developing a human-steerable multi-agent reinforcement learning reward design pipeline that uses MPC-guided demonstrations to infer temporal-logic constraints, which are then built into reward machines to give more aligned reward signals. I'm also investigating online policy adaptation with residual MPC. More broadly, my interests include reinforcement learning, imitation learning, optimal control, POMDPs, constrained optimization, diffusion planners, and perception, and my work with the lab spans quadrotor control, risk-aware localization, and vision-language models for action generation.
 
-I previously completed my bachelors degree in Computer Science with a minor in Mathematics at UMD, during which I was involved in cybersecurity research with Dr. Dave Levin and completed two software engineering internships at Echostar. In my free time, I enjoy skiing, hiking, and cooking. 
+I also work closely with [Dr. Donald Costello](https://eng.umd.edu/clark/faculty/1903/Donald-Bucket-Costello-III) in the [Maryland Autonomous Technologies Research Innovation and eXploration (MATRIX) Lab](https://matrix.umd.edu/), where I develop control loops for autonomous UAV landings on Navy vessels in turbulent and low-visibility conditions.
+
+This summer I was a reinforcement learning intern at [Systems and Technology Research](https://str.us/). I completed my bachelors (with a minor in Mathematics) and masters degrees in Computer Science at UMD. In my free time, I enjoy skiing, hiking, and cooking.
 
 I'm currently doing a major revamp of this website!
