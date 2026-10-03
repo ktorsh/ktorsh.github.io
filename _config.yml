@@ -318,6 +318,7 @@ filtered_bibtex_keywords:
     poster,
     preview,
     preprint,
+    journal,
     selected,
     slides,
     supp,
