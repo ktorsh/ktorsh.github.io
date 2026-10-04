@@ -1,5 +1,12 @@
 <div class="publications">
-  {% bibliography --group_by none --query @*[selected=true && preprint=true && journal!=true]* %}
-  {% bibliography --group_by none --query @*[selected=true && preprint!=true && journal!=true]* %}
-  {% bibliography --group_by none --query @*[selected=true && journal=true]* %}
+
+<h2 class="bibliography">Preprints</h2>
+{% bibliography --group_by none --query @*[preprint=true && journal!=true]* %}
+
+<h2 class="bibliography">Conferences</h2>
+{% bibliography --group_by none --query @*[preprint!=true && journal!=true]* %}
+
+<h2 class="bibliography">Journals</h2>
+{% bibliography --group_by none --query @*[journal=true]* %}
+
 </div>
